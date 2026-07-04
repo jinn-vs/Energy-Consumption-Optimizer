@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Energy Optimizer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            width: 480px;
+            backdrop-filter: blur(10px);
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 8px;
+            font-size: 28px;
+        }
+
+        .container h2 span {
+            color: #00e676;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #90a4ae;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .flash {
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .flash.success {
+            background: rgba(0, 230, 118, 0.15);
+            color: #00e676;
+            border: 1px solid #00e676;
+        }
+
+        .flash.danger {
+            background: rgba(255, 82, 82, 0.15);
+            color: #ff5252;
+            border: 1px solid #ff5252;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            color: #b0bec5;
+            margin-bottom: 5px;
+            margin-top: 15px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            outline: none;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #00e676;
+        }
+
+        input::placeholder {
+            color: #546e7a;
+        }
+
+        select option {
+            background: #1a2a33;
+            color: #fff;
+        }
+
+        .checkbox-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .checkbox-row input[type="checkbox"] {
+            width: auto;
+        }
+
+        .solar-fields {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .solar-fields.show {
+            display: block;
+        }
+
+        .row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .row>div {
+            flex: 1;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #00e676;
+            color: #0f2027;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 25px;
+        }
+
+        button:hover {
+            background: #00c853;
+        }
+
+        .bottom-link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #90a4ae;
+        }
+
+        .bottom-link a {
+            color: #00e676;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>⚡ <span>Register</span></h2>
+        <p class="subtitle">Apna account banao aur bijli bachana shuru karo</p>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="flash {{ category }}">{{ message }}</div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+            <label>Naam</label>
+            <input type="text" name="name" placeholder="Apna naam likho" required>
+
+            <label>Email</label>
+            <input type="email" name="email" placeholder="email@example.com" required>
+
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Password banao" required>
+
+            <label>Sheher</label>
+            <input type="text" name="city" list="cities" placeholder="e.g. Rawalpindi, Lahore" value="Rawalpindi"
+                required>
+            <datalist id="cities">
+                <option value="Rawalpindi">
+                <option value="Islamabad">
+                <option value="Lahore">
+                <option value="Karachi">
+                <option value="Peshawar">
+                <option value="Faisalabad">
+                <option value="Multan">
+                <option value="Quetta">
+                <option value="Sialkot">
+                <option value="Hyderabad">
+                <option value="Abbottabad">
+            </datalist>
+
+            <div class="row">
+                <div>
+                    <label>Monthly Budget (Rs)</label>
+                    <input type="number" name="monthly_budget_rs" value="5000" placeholder="e.g. 5000" required>
+                </div>
+                <div>
+                    <label>Per Unit Cost (Rs)</label>
+                    <input type="number" step="0.01" name="per_unit_cost" value="55" placeholder="e.g. 55" required>
+                </div>
+            </div>
+
+            <div class="checkbox-row">
+                <input type="checkbox" name="solar_panels" id="solar_check" onchange="toggleSolar()">
+                <label for="solar_check" style="margin:0; cursor:pointer;">Solar panels hain?</label>
+            </div>
+
+            <div class="solar-fields" id="solar_fields">
+                <div class="row">
+                    <div>
+                        <label>Kitne Panels?</label>
+                        <input type="number" name="panel_count" value="0" min="0">
+                    </div>
+                    <div>
+                        <label>Panel Wattage</label>
+                        <input type="number" name="panel_wattage" value="0" min="0" placeholder="e.g. 350">
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit">Account Banao →</button>
+        </form>
+
+        <div class="bottom-link">
+            Pehle se account hai? <a href="/login">Login karo</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleSolar() {
+            const fields = document.getElementById('solar_fields');
+            const check = document.getElementById('solar_check');
+            fields.classList.toggle('show', check.checked);
+        }
+    </script>
+</body>
+
+</html>

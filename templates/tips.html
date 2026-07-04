@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Tips - Energy Optimizer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        nav .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #00e676;
+        }
+
+        nav .logo span {
+            color: #fff;
+        }
+
+        nav .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+
+        nav .nav-links a:hover {
+            color: #00e676;
+        }
+
+        .main {
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        h1 span {
+            color: #00e676;
+        }
+
+        .weather-info {
+            color: #90a4ae;
+            font-size: 14px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .weather-info img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .tip-card {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            padding: 20px 25px;
+            margin-bottom: 15px;
+            font-size: 15px;
+            line-height: 1.7;
+            color: #cfd8dc;
+            transition: transform 0.2s;
+        }
+
+        .tip-card:hover {
+            transform: translateX(5px);
+            border-color: rgba(0, 230, 118, 0.3);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #90a4ae;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back-link:hover {
+            color: #00e676;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">⚡ Energy<span>Optimizer</span></div>
+        <div class="nav-links">
+            <a href="/dashboard">Dashboard</a>
+            <a href="/add_appliance">+ Appliance</a>
+            <a href="/tips">Tips</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </nav>
+    python app.py
+
+    <div class="main">
+        <h1>💡 Aaj Ki <span>Energy Tips</span></h1>
+        <div class="weather-info">
+            <img src="https://openweathermap.org/img/wn/{{ weather.icon }}@2x.png" alt="weather">
+            <span>{{ weather.temp }}°C — {{ weather.description | title }} | Clouds: {{ weather.clouds }}%</span>
+        </div>
+
+        {% for tip in tips %}
+        <div class="tip-card">{{ tip }}</div>
+        {% endfor %}
+
+        <a href="/dashboard" class="back-link">← Dashboard pe wapas jao</a>
+    </div>
+</body>
+
+</html>

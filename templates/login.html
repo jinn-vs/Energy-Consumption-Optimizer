@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Energy Optimizer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            width: 420px;
+            backdrop-filter: blur(10px);
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 8px;
+            font-size: 28px;
+        }
+
+        .container h2 span {
+            color: #00e676;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #90a4ae;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .flash {
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .flash.success {
+            background: rgba(0, 230, 118, 0.15);
+            color: #00e676;
+            border: 1px solid #00e676;
+        }
+
+        .flash.danger {
+            background: rgba(255, 82, 82, 0.15);
+            color: #ff5252;
+            border: 1px solid #ff5252;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            color: #b0bec5;
+            margin-bottom: 5px;
+            margin-top: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            outline: none;
+            transition: border 0.3s;
+        }
+
+        input:focus {
+            border-color: #00e676;
+        }
+
+        input::placeholder {
+            color: #546e7a;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #00e676;
+            color: #0f2027;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 25px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #00c853;
+        }
+
+        .bottom-link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #90a4ae;
+        }
+
+        .bottom-link a {
+            color: #00e676;
+            text-decoration: none;
+        }
+
+        .bottom-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>⚡ <span>Login</span></h2>
+        <p class="subtitle">Apne account mein login karo</p>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="flash {{ category }}">{{ message }}</div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="email@example.com" required>
+
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Apna password dalo" required>
+
+            <button type="submit">Login →</button>
+        </form>
+
+        <div class="bottom-link">
+            Account nahi hai? <a href="/register">Register karo</a>
+        </div>
+    </div>
+</body>
+
+</html>

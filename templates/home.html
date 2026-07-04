@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Optimizer - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        nav .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #00e676;
+        }
+
+        nav .logo span {
+            color: #fff;
+        }
+
+        nav .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        nav .nav-links a:hover {
+            color: #00e676;
+        }
+
+        nav .nav-links a.btn-nav {
+            background: #00e676;
+            color: #0f2027;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+
+        nav .nav-links a.btn-nav:hover {
+            background: #00c853;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: #00e676;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #b0bec5;
+            max-width: 600px;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .hero-buttons a {
+            display: inline-block;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            margin: 0 10px;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #00e676;
+            color: #0f2027;
+        }
+
+        .btn-primary:hover {
+            background: #00c853;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            border: 2px solid #00e676;
+            color: #00e676;
+        }
+
+        .btn-secondary:hover {
+            background: #00e676;
+            color: #0f2027;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 50px 20px;
+            flex-wrap: wrap;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 35px 25px;
+            width: 280px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #00e676;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: #90a4ae;
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #546e7a;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">⚡ Energy<span>Optimizer</span></div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/login">Login</a>
+            <a href="/register" class="btn-nav">Register</a>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>Apni <span>Bijli</span> Bachao,<br>Smart Tarikay Se</h1>
+        <p>Real-time energy monitoring, weather-aware solar optimization, aur energy margin banking — sab ek jagah.
+            Pakistani households ke liye banaya gaya.</p>
+        <div class="hero-buttons">
+            <a href="/register" class="btn-primary">Shuru Karein →</a>
+            <a href="/login" class="btn-secondary">Login</a>
+        </div>
+    </div>
+
+    <div class="features">
+        <div class="feature-card">
+            <div class="icon">📊</div>
+            <h3>Smart Monitoring</h3>
+            <p>Har appliance ki bijli ka hisaab rakho. Jaano konsi cheez zyada khati hai.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">🌤️</div>
+            <h3>Weather + Solar</h3>
+            <p>Weather ke hisaab se solar output ka andaza lagao aur loads shift karo.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">🏦</div>
+            <h3>Energy Banking</h3>
+            <p>Kam use ke din energy save karo, garmi ke din use karo. Bill smooth rahega.</p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 Energy Optimizer — Sara Sadiq | NUST MCS | EE-62A
+    </footer>
+</body>
+
+</html>
